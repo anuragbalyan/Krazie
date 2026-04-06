@@ -95,6 +95,15 @@ This project is licensed under the MIT License.`
 
           {/* Output Section */}
           {readme && <OutputSection readme={readme} />}
+
+          {/* Chatbot Prompt */}
+          {readme && (
+            <div className="card-base p-8 mt-10 border border-slate-700/50">
+              <h3 className="text-3xl font-bold gradient-text mb-3">Chat with README Assistant</h3>
+              <p className="text-slate-300 mb-4">Use the floating bot in the bottom-right corner to ask for improvements, badges, or more detail.</p>
+              <p className="text-slate-400 text-sm">Example: "Add installation instructions", "Make this README more professional", or "Add feature highlights".</p>
+            </div>
+          )}
         </section>
       </main>
 
