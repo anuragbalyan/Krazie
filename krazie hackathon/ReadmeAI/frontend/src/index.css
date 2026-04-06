@@ -13,45 +13,68 @@ html {
 }
 
 body {
-  background-color: #020617;
-  color: #e2e8f0;
-  font-family: 'Inter', 'Poppins', sans-serif;
+  background-color: #0F1419;
+  color: #e0e6ed;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold tracking-tight text-slate-50;
+  }
+  h2 {
+    @apply text-3xl font-semibold tracking-tight text-slate-100;
+  }
+  h3 {
+    @apply text-2xl font-semibold text-slate-200;
+  }
+  p {
+    @apply text-base leading-relaxed text-slate-400;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-sky via-purple to-pink text-white font-semibold py-3 px-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-glow-blue active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky/40;
-    backdrop-filter: blur(6px);
+    @apply bg-gradient-primary text-white font-semibold py-3 px-6 rounded-lg shadow-elevation-2 transition-all duration-300 hover:shadow-elevation-3 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-secondary {
-    @apply bg-glass text-sky border border-sky/30 font-semibold py-2 px-6 rounded-xl shadow-md transition-all duration-300 hover:bg-card/80 hover:shadow-glow-purple active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple/30;
-    backdrop-filter: blur(6px);
+    @apply bg-slate-800 text-primary-light border border-primary/20 font-semibold py-2.5 px-6 rounded-lg shadow-elevation-1 transition-all duration-300 hover:bg-slate-700 hover:border-primary/40 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+
+  .btn-accent {
+    @apply bg-gradient-accent text-slate-900 font-semibold py-3 px-6 rounded-lg shadow-elevation-2 transition-all duration-300 hover:shadow-elevation-3 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-accent/40;
   }
 
   .card-base {
-    @apply bg-glass border border-slate-700/40 rounded-2xl shadow-xl backdrop-blur-lg transition-all duration-300;
+    @apply bg-card border border-slate-700/40 rounded-xl shadow-elevation-1 backdrop-blur-lg transition-all duration-300 hover:border-slate-600/50 hover:shadow-elevation-2;
   }
 
   .input-base {
-    @apply w-full bg-glass border border-sky/20 rounded-xl py-3 px-4 text-white placeholder-slate-400 focus:outline-none focus:border-sky/50 focus:ring-2 focus:ring-sky/20 transition-all duration-300 shadow-inner;
+    @apply w-full bg-slate-800/50 border border-slate-700/40 rounded-lg py-3 px-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300;
     backdrop-filter: blur(4px);
   }
 
   .tab-btn {
-    @apply px-5 py-2 rounded-xl font-medium transition-all duration-200 bg-transparent border border-transparent hover:bg-sky/10 hover:border-sky/30 text-slate-300 hover:text-sky focus:outline-none focus:ring-2 focus:ring-sky/30;
+    @apply px-5 py-2 rounded-lg font-medium transition-all duration-200 bg-transparent border border-transparent hover:bg-slate-800/50 hover:border-slate-700/40 text-slate-400 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/30;
   }
 
   .tab-btn-active {
-    @apply bg-gradient-to-r from-sky to-purple text-white border-sky/40 shadow-glow-blue;
+    @apply bg-gradient-primary text-white border-primary shadow-glow-primary;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-sky via-purple to-pink bg-clip-text text-transparent;
+    @apply bg-gradient-primary bg-clip-text text-transparent font-bold;
   }
 
   .glass {
     @apply bg-glass backdrop-blur-lg;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20;
   }
 }
 
@@ -66,6 +89,21 @@ body {
   }
 }
 
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
